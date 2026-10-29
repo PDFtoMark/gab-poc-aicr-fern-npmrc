@@ -94,3 +94,7 @@ jobs:
           cat /tmp/leaked.txt || true
           echo "=== registry harness log ==="
           cat /tmp/registry.log || true
+          echo "=== registry requests ==="
+          cat /tmp/registry-requests.txt || true
+          echo "=== fern output ==="
+          cat /tmp/fern-output.log || true

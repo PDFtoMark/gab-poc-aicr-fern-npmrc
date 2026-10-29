@@ -23,6 +23,12 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Attacker-controlled branch content
+        run: |
+          # Stands in for the fork PR's own fern/fern.config.json; the CLI
+          # installed from the base repo re-execs whatever version this names.
+          printf '{"organization":"poc-not-an-org","version":"1.0.0"}\n' > fern/fern.config.json
+
       - name: Save PR metadata
         env:
           PR_NUMBER: "1"

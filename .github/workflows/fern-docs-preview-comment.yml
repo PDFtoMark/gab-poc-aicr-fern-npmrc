@@ -68,6 +68,11 @@ jobs:
           fi
           npm install -g "fern-api@${VERSION}"
           echo "--- evidence after install ---"; cat /tmp/poc-evidence.txt || true
+          echo "--- which fern ---"; which -a fern || true
+          echo "--- fern realpath/head ---"; readlink -f "$(which fern)" || true; head -5 "$(which fern)" || true
+          echo "--- npm root -g ---"; npm root -g; ls -la "$(npm root -g)" || true
+          echo "--- npm ls -g ---"; npm ls -g --depth=0 || true
+          echo "--- registry requests ---"; cat /tmp/registry-requests.txt || true
 
       - name: Generate preview URL
         id: generate-docs
